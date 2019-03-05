@@ -10,12 +10,14 @@
   background-color: black;
 }
 
-h2 {
-  color: white;
+.fullscreen h1 {
+  font-family: "teko";
+  z-index: 1;
 }
 
 .fullscreen {
   display: flex;
+  flex-direction: column;
   position: relative;
   background-color: skyblue;
   width: 100vw;
@@ -23,9 +25,22 @@ h2 {
   align-items: center;
   justify-content: center;
   font-size: 5em;
+  overflow: hidden;
 }
 
-ul {
+.fullscreen button {
+  margin: 25px auto;
+  padding: 10px;
+  font-size: 0.5em;
+  border-radius: 20px;
+  background-color: lightgreen;
+  box-shadow: -1px 2px 5px 4px rgba(0,0,0,0.2);
+  font-family: "concert one";
+  color: white;
+  z-index: 1;
+}
+
+.fullscreen ul {
   display: flex;
   position: absolute;
   justify-content: space-around;
@@ -35,8 +50,80 @@ ul {
 }
 
 .bubble {
+  position: relative;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   border: 2px solid white;
+  opacity: 0;
+}
+
+.bubble:nth-child(1) {
+  animation: float 5s infinite ease-in, weave 3s linear infinite;
+}
+.bubble:nth-child(2) {
+  animation: float 5s 1s infinite ease-in, weave 6s linear infinite;
+}
+.bubble:nth-child(3) {
+  animation: float 10s infinite ease-in, weave 4s linear infinite;
+}
+.bubble:nth-child(4) {
+  animation: float 10s 4s infinite ease-in, weave 5s linear infinite;
+}
+.bubble:nth-child(5) {
+  animation: float 3s infinite ease-in, weave 2s linear infinite;
+}
+
+.moreBubbles {
+  position: absolute;
+  animation: float 5s infinite ease-in, weave 3s linear infinite;
+}
+@keyframes float {
+  from {
+    opacity: 1;
+    transform: translateY(120px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes weave {
+  0% {
+    left: 0px;
+  }
+  33% {
+    left: 50px;
+  }
+  66% {
+    left: -50px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+  background-color: lightgreen;
+}
+
+.pop {
+  animation-play-state: paused;
+  animation: pop 1000ms;
+}
+
+@keyframes pop {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
